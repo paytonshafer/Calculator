@@ -169,21 +169,26 @@ public class HelloApplication extends Application {
                 String[] input = txt.getText().split(" ");
                 int num1 = Integer.parseInt(input[0]);
                 int num2 = Integer.parseInt(input[2]);
+                int sum;
+                int diff;
+                int prod;
+                double quot;
 
-                if(input[1] == "+"){
-                    int sum = num1 + num2;
+                System.out.println(input[0] + input[1] + input[2]);
+                if(input[1].equals("+")){
+                    sum = num1 + num2;
                     txt.setText(txt.getText() + " = " + Integer.toString(sum));
-                }else if (input[1] == "-"){
-                    int diff = num1 - num2;
+                }else if (input[1].equals("-")){
+                    diff = num1 - num2;
                     txt.setText(txt.getText() + " = " + Integer.toString(diff));
-                }else if (input[1] == "x"){
-                    int prod = num1*num2;
+                }else if (input[1].equals("×")){
+                    prod = num1*num2;
                     txt.setText(txt.getText() + " = " + Integer.toString(prod));
-                }else{
+                }else if (input[1].equals("÷")){
                     if(num2 == 0) {
                         txt.setText("ERROR: Can't divide by 0");
                     }else{
-                        double quot = num1/num2;
+                        quot = (double)num1/(double)num2;
                         txt.setText(txt.getText() + " = " + Double.toString(quot));
                     }
                 }
@@ -192,6 +197,89 @@ public class HelloApplication extends Application {
 
         //display
         StackPane root=new StackPane();
+
+        root.getChildren().add(btn0);
+        root.getChildren().add(btn1);
+        root.getChildren().add(btn2);
+        root.getChildren().add(btn3);
+        root.getChildren().add(btn4);
+        root.getChildren().add(btn5);
+        root.getChildren().add(btn6);
+        root.getChildren().add(btn7);
+        root.getChildren().add(btn8);
+        root.getChildren().add(btn9);
+
+        btn1.setTranslateX(-150);
+        btn1.setTranslateY(-150);
+        btn1.setMaxSize(90,90);
+
+        btn2.setTranslateX(0);
+        btn2.setTranslateY(-150);
+        btn2.setMaxSize(90,90);
+
+        btn3.setTranslateX(-150);
+        btn3.setTranslateY(-50);
+        btn3.setMaxSize(90,90);
+
+        btn4.setTranslateX(0);
+        btn4.setTranslateY(-50);
+        btn4.setMaxSize(90,90);
+
+        btn5.setTranslateX(-150);
+        btn5.setTranslateY(50);
+        btn5.setMaxSize(90,90);
+
+        btn6.setTranslateX(0);
+        btn6.setTranslateY(50);
+        btn6.setMaxSize(90,90);
+
+        btn7.setTranslateX(-150);
+        btn7.setTranslateY(150);
+        btn7.setMaxSize(90,90);
+
+        btn8.setTranslateX(0);
+        btn8.setTranslateY(150);
+        btn8.setMaxSize(90,90);
+
+        btn9.setTranslateX(-150);
+        btn9.setTranslateY(250);
+        btn9.setMaxSize(90,90);
+
+        btn0.setTranslateX(0);
+        btn0.setTranslateY(250);
+        btn0.setMaxSize(90,90);
+
+        root.getChildren().add(plus);
+        root.getChildren().add(minus);
+        root.getChildren().add(times);
+        root.getChildren().add(divide);
+        root.getChildren().add(equals);
+
+        plus.setTranslateX(150);
+        plus.setTranslateY(-150);
+        plus.setMaxSize(90,90);
+
+        minus.setTranslateX(150);
+        minus.setTranslateY(-50);
+        minus.setMaxSize(90,90);
+
+        times.setTranslateX(150);
+        times.setTranslateY(50);
+        times.setMaxSize(90,90);
+
+        divide.setTranslateX(150);
+        divide.setTranslateY(150);
+        divide.setMaxSize(90,90);
+
+        equals.setTranslateX(150);
+        equals.setTranslateY(250);
+        equals.setMaxSize(90,90);
+
+        root.getChildren().add(txt);
+
+        txt.setTranslateX(0);
+        txt.setTranslateY(-250);
+
         Scene scene = new Scene(root, 500, 600);
         stage.setTitle("Calculator");
         stage.setScene(scene);
